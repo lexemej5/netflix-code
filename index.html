@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="netflix.js" defer></script>
+    <script>
+        if (
+  location.protocol !== 'https:' &&
+  !["localhost", "127.0.0.1"].includes(location.hostname)
+) {
+  location.href = 'https://' + location.hostname + location.pathname + location.search;
+}
+    </script>
 </head>
 <body>
 <header class="bg-[url('./images/netflix-background-home.jpg')] bg-cover bg-no-repeat bg-black/70 bg-blend-multiply font-poppins">
