@@ -1,0 +1,228 @@
+
+   *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+   }
+
+ html{
+  scroll-behavior: smooth;
+   }
+
+   body{
+   overflow-x: hidden;
+   }
+
+  header, .container-box{
+  width: 100%;
+  padding: 1em 1.5em;
+  }
+
+   .bg-none{
+   background-color: none;
+  
+   }
+
+   .scroll{
+   
+   }
+   .scroll-padding{
+   padding: 1em 2.5em;
+   }
+   .scroll .scroll-content::-webkit-scrollbar{
+   display: none;
+   }
+ 
+   .scroll .scroll-content{
+   scroll-behavior: smooth;
+   scroll-snap-type:  x mandatory;
+   padding: 1rem;
+   }
+
+.text-stroke{
+-webkit-text-stroke: 2px white;
+font-weight: 700;
+   }
+
+   .movie-container-box img{
+    border-radius: 10px;
+   }
+
+   section.movies{
+   position: relative;
+   z-index: 1;
+   }
+
+   section::before{
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 20px;
+   clip-path: ellipse(50% 25% at 50% 100%);
+   top: 0;
+   inset: 0;
+   transform: translateY(-90%);
+   z-index: 3;
+   background: linear-gradient(135deg, #5c6db3, red 50%, #5c6db3 100%);
+   }
+
+   .linear-color{
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+   }
+
+   .linear-color::before{
+   content: "";
+   position: absolute;
+   width: 60%;
+   height: 30vh;
+   clip-path: ellipse(50% 40% at 50% -10%);
+   top: 2px;
+   left: 20%;
+   background: radial-gradient(
+    ellipse at top center,
+    #17224a 0%,            /* bright navy glow */
+    #0A0F23 40%,           /* your main color */
+    #000000 80%            /* fades to black */
+);
+   filter: drop-shadow(0 50px 40px black)
+            drop-shadow(20px 60px 40px black)
+            drop-shadow(5px 40px 20px white);
+   }
+
+   a[data-hidden = "true"]{
+   visibility: visible;
+   transition: 0.2s ease-in-out;
+   }
+   
+
+   a[data-hidden = "false"]{
+   visibility: hidden;
+   transition: 0.2s ease-in-out;
+   }
+   
+
+   .boxes > *{
+   background: linear-gradient(135deg, #1C1A33, #20101C);
+   color: aliceblue;
+   padding: 1em 1.2em;
+   border-radius:8px;
+   }
+
+
+   .boxes h3{
+   font-size: 1.5rem;
+   font-weight: 700;
+   margin-bottom: 0.5em;
+   }
+  .icon{
+  background-color: white;
+  border-radius: 50%;
+  filter: blur(0.1px);
+  }
+   .icon i{
+   filter: drop-shadow(0 8px 32px blue);
+   color: red;
+   border-radius: 50%;
+   }
+
+  
+   .details{
+   padding: 1em;
+   background-color: rgba(255, 255, 255, 0.2);
+   cursor: pointer;
+   list-style: none;
+   position: relative;
+   }
+
+
+    .accordion-content{
+    transform: translateY(-5%);
+    overflow: hidden;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 500ms linear,
+                visibility 500ms linear,
+                max-height 300ms ease-in-out,
+                opacity 500ms linear,
+                padding 500ms linear,
+                position 500ms ease-in-out;
+    }
+
+    .accordion-content.open{
+    transform: translateY(0%);
+    opacity: 1;
+    padding: 1em 0;
+    max-height: 100%;
+    visibility: visible;
+    }
+
+    .details button i{
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    padding-inline: 0.2em; 
+    font-size: clamp(0.35rem, calc(5vw + 0.5rem), 2rem);
+    top: 0;
+    font-weight: lighter;
+    transform: rotate(0deg);
+    transition: transform 500ms linear;
+    }
+
+    .details .bi-x{
+    transform: rotate(360deg);
+    }
+
+
+    select{
+    position: relative;
+    inset: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    padding: 0.2em 1.3em;
+    height: 100%;
+    width: 100%;
+    }
+
+    .boxselect{
+    appearance: none;
+    position: relative;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0 0.5em;
+    }
+
+    .boxselect::after{
+    content: "▼" ;
+    position: absolute;
+    color: white;
+    font-size: 0.75rem;
+    transform: translateX(-180%);
+    top: 22%;
+    pointer-events: none;
+    }
+
+    .animate-btn{
+    display: none;
+    }
+
+    /* learning */
+ @media (max-width:500px) {
+ .animate-btn {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+         
+ }
+
+      
